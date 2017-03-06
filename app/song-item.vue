@@ -3,14 +3,14 @@
     <div class="track">
       <div class="panel-block media">
         <div class="media-left">
-          <img src="http://placecage.com/400/400" alt="" class="track__media track__frame">
+          <img v-bind:src="songs.album.images[0].url" alt="" class="track__media track__frame">
         </div>
         <div class="media-content">
-          <div class="track__artist">asdf artist</div>
-          <div class="track__name">track name name name</div>
+          <div class="track__artist">{{songs.artists[0].name}}</div>
+          <div class="track__name">{{songs.name}}</div>
         </div>
         <div class="media-right">
-          <span class="fa fa-spotify spotify-icon"></span>
+          <a v-bind:href="songs.external_urls.spotify" class="fa fa-spotify track__frame"></a>
         </div>
       </div>
     </div>
@@ -19,7 +19,12 @@
 
 <script>
 export default {
-  props: ['track'],
+  props: ['songs'],
+
+  data() {
+    return {
+    };
+  },
 
   methods: {
 
